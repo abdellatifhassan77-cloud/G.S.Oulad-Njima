@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G.S. Oulad Njima - Accueil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Tajawal:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --blue-gradient: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            --green-accent: #B2DFDB;
+            --dark-text: #424242;
+            --light-bg: #F5F7FA;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            transition: 0.5s;
+        }
+
+        header {
+            background: var(--blue-gradient);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-icons .lang-toggle,
+        .nav-icons a,
+        .nav-icons .menu-toggle {
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-icons .lang-toggle:hover,
+        .nav-icons a:hover,
+        .nav-icons .menu-toggle:hover {
+            transform: scale(1.2);
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 280px;
+            position: fixed;
+            z-index: 1001;
+            top: 0;
+            background-color: var(--white);
+            padding-top: 60px;
+            transition: 0.5s;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        html[dir="ltr"] .sidebar {
+            right: -280px;
+        }
+
+        html[dir="ltr"] .sidebar.active {
+            right: 0;
+        }
+
+        html[dir="rtl"] .sidebar {
+            left: -280px;
+        }
+
+        html[dir="rtl"] .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: var(--light-bg);
+        }
+
+        .sidebar a i {
+            margin-right: 10px;
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 15px;
+            font-size: 2.5rem;
+        }
+
+        html[dir="ltr"] .sidebar .close-btn {
+            right: 25px;
+        }
+
+        html[dir="rtl"] .sidebar .close-btn {
+            left: 25px;
+        }
+
+        #overlay {
+            position: fixed;
+            display: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            cursor: pointer;
+        }
+
+        #overlay.active {
+            display: block;
+        }
+
+        .main-content {
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .main-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .main-subtitle {
+            font-size: 1.2rem;
+            color: #757575;
+            margin-bottom: 50px;
+        }
+
+        .levels-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .level-card {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            width: 320px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 40px 20px;
+        }
+
+        .level-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .level-icon {
+            font-size: 6rem;
+            margin-bottom: 25px;
+            color: #a1c4fd;
+        }
+
+        .card-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            font-size: 1rem;
+            color: #616161;
+            line-height: 1.6;
+        }
+
+        .btn-start {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 30px;
+            background-color: var(--green-accent);
+            color: var(--dark-text);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            background-color: var(--dark-text);
+            color: #E0E0E0;
+            padding: 40px 5%;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-column {
+            width: 22%;
+            min-width: 200px;
+        }
+
+        .footer-column .logo {
+            color: var(--green-accent);
+            text-shadow: none;
+        }
+
+        .footer-column h4 {
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--green-accent);
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .footer-column p,
+        .footer-column a {
+            text-decoration: none;
+            color: #E0E0E0;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--white);
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #616161;
+            font-size: 0.9rem;
+            color: #BDBDBD;
+        }
+
+        .lang-ar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="#" class="logo">G.S. Oulad Njima</a>
+        <div class="nav-icons">
+            <span class="lang-toggle" onclick="toggleLanguage()" title="Changer la langue"><i
+                    class="fas fa-globe"></i></span>
+            <a href="#" title="Accueil"><i class="fas fa-home"></i></a>
+            <span class="menu-toggle" onclick="openNav()"><i class="fas fa-bars"></i></span>
+        </div>
+    </header>
+
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+        <a href="#"><i class="fas fa-home"></i><span class="lang-fr">Accueil</span><span
+                class="lang-ar">الرئيسية</span></a>
+        <a href="#"><i class="fas fa-child-reaching"></i><span class="lang-fr">Primaire</span><span
+                class="lang-ar">الابتدائي</span></a>
+        <a href="#"><i class="fas fa-book"></i><span class="lang-fr">Bibliothèque</span><span
+                class="lang-ar">المكتبة</span></a>
+        <a href="#"><i class="fas fa-newspaper"></i><span class="lang-fr">Dernières Nouvelles</span><span
+                class="lang-ar">آخر الأخبار</span></a>
+    </div>
+    <div id="overlay" onclick="closeNav()"></div>
+
+    <main class="main-content">
+        <h2 class="main-title">
+            <span class="lang-fr">Bienvenue à G.S. Oulad Njima</span><span class="lang-ar">مرحبًا بكم في م.ج. أولاد
+                نجيمة</span>
+        </h2>
+        <p class="main-subtitle">
+            <span class="lang-fr">L'éducation de qualité pour un avenir brillant. Découvrez nos ressources.</span>
+            <span class="lang-ar">تعليم ذو جودة عالية من أجل مستقبل مشرق. اكتشفوا مواردنا.</span>
+        </p>
+
+        <div class="levels-container">
+            <!-- Primaire -->
+            <div class="level-card" id="primaire">
+                <i class="fas fa-child-reaching level-icon"></i>
+                <div class="card-content">
+                    <h3><span class="lang-fr">Le Cycle Primaire</span><span class="lang-ar">السلك الابتدائي</span></h3>
+                    <p><span class="lang-fr">Fondations solides, apprentissage ludique et développement de la
+                            curiosité.</span><span class="lang-ar">أسس متينة، تعلم ممتع وتنمية الفضول لدى الصغار.</span>
+                    </p>
+                    <a href="#" class="btn-start"><span class="lang-fr">Commencer</span><span
+                            class="lang-ar">إبدأ</span></a>
+                </div>
+            </div>
+
+            <!-- Bibliothèque -->
+            <div class="level-card" id="bibliotheque">
+                <i class="fas fa-book level-icon"></i>
+                <div class="card-content">
+                    <h3><span class="lang-fr">Notre Bibliothèque</span><span class="lang-ar">مكتبتنا</span></h3>
+                    <p><span class="lang-fr">Explorez une vaste collection de livres, de ressources et de matériels
+                            pédagogiques.</span><span class="lang-ar">استكشفوا مجموعة واسعة من الكتب، الموارد والمواد
+                            التعليمية.</span></p>
+                    <a href="#" class="btn-start"><span class="lang-fr">Découvrir</span><span
+                            class="lang-ar">اكتشفوا</span></a>
+                </div>
+            </div>
+
+            <!-- Dernières Nouvelles -->
+            <div class="level-card" id="nouvelles">
+                <i class="fas fa-newspaper level-icon"></i>
+                <div class="card-content">
+                    <h3><span class="lang-fr">Dernières Nouvelles</span><span class="lang-ar">آخر الأخبار</span></h3>
+                    <p><span class="lang-fr">Restez informé des événements de l'école, des annonces et des mises à
+                            jour importantes.</span><span class="lang-ar">ابقوا على اطلاع بأحداث المدرسة، الإعلومات
+                            والتحديثات الهامة.</span></p>
+                    <a href="#" class="btn-start"><span class="lang-fr">Lire plus</span><span class="lang-ar">اقرأ
+                            المزيد</span></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <a href="#" class="logo">G.S. Oulad Njima</a>
+                <p style="margin-top:15px;"><span class="lang-fr">Notre mission est d'offrir une éducation qui inspire
+                        et prépare les leaders de demain.</span><span class="lang-ar">مهمتنا هي تقديم تعليم يلهم ويعد
+                        قادة الغد.</span></p>
+            </div>
+            <div class="footer-column">
+                <h4><span class="lang-fr">Liens Rapides</span><span class="lang-ar">روابط سريعة</span></h4>
+                <a href="#primaire"><span class="lang-fr">Primaire</span><span class="lang-ar">الابتدائي</span></a>
+                <a href="#bibliotheque"><span class="lang-fr">Bibliothèque</span><span
+                        class="lang-ar">المكتبة</span></a>
+                <a href="#nouvelles"><span class="lang-fr">Nouvelles</span><span class="lang-ar">الأخبار</span></a>
+            </div>
+            <div class="footer-column">
+                <h4><span class="lang-fr">Contactez-nous</span><span class="lang-ar">اتصلوا بنا</span></h4>
+                <p><i class="fas fa-map-marker-alt"></i> <span class="lang-fr">123 Rue de l'Avenir,
+                        Casablanca</span><span class="lang-ar">123 شارع المستقبل، الدار البيضاء</span></p>
+                <p><i class="fas fa-phone"></i> +212 5 22 33 44 55</p>
+                <p><i class="fas fa-envelope"></i> contact@ouladnjima.ma</p>
+            </div>
+            <div class="footer-column">
+                <h4><span class="lang-fr">Suivez-nous</span><span class="lang-ar">تابعونا</span></h4>
+                <div class="social-icons">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="lang-fr">&copy; 2024 G.S. Oulad Njima. Tous droits réservés.</span>
+            <span class="lang-ar">&copy; 2024 م.ج. أولاد نجيمة. جميع الحقوق محفوظة.</span>
+        </div>
+    </footer>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").classList.add("active");
+            document.getElementById("overlay").classList.add("active");
+        }
+        function closeNav() {
+            document.getElementById("mySidebar").classList.remove("active");
+            document.getElementById("overlay").classList.remove("active");
+        }
+
+        let currentLang = 'fr';
+        function toggleLanguage() {
+            const elementsFr = document.querySelectorAll('.lang-fr');
+            const elementsAr = document.querySelectorAll('.lang-ar');
+
+            if (currentLang === 'fr') {
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+                elementsFr.forEach(el => el.style.display = 'none');
+                elementsAr.forEach(el => el.style.display = 'inline');
+                document.querySelectorAll('h2 .lang-ar, h3 .lang-ar, h4 .lang-ar, p .lang-ar, .main-subtitle .lang-ar').forEach(el => el.style.display = 'block');
+                currentLang = 'ar';
+            } else {
+                document.documentElement.lang = 'fr';
+                document.documentElement.dir = 'ltr';
+                elementsAr.forEach(el => el.style.display = 'none');
+                elementsFr.forEach(el => el.style.display = 'inline');
+                document.querySelectorAll('h2 .lang-fr, h3 .lang-fr, h4 .lang-fr, p .lang-fr, .main-subtitle .lang-fr').forEach(el => el.style.display = 'block');
+                currentLang = 'fr';
+            }
+        }
+    </script>
+</body>
+
+</html>
