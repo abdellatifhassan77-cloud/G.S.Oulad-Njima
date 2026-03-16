@@ -1,133 +1,53 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="مرحبا بكم في موقعنا الاحترافي - نقدم خدمات عالية الجودة">
-    <title>G.S.Oulad-Njima | الموقع الاحترافي</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Description of the page for SEO"> 
+    <meta property="og:image" content="image_url_here">
+    <meta property="og:title" content="Title of the page">
+    <meta property="og:description" content="Description of the page for social sharing">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Updated Page Title</title>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="#home" class="logo">G.S.Oulad-Njima</a>
-            <ul id="navMenu">
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#about">من نحن</a></li>
-                <li><a href="#services">الخدمات</a></li>
-                <li><a href="#contact">اتصل بنا</a></li>
+    <header>
+        <h1>Welcome to Our Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
-            <div id="hamburger" class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>مرحبا بك في G.S.Oulad-Njima</h1>
-            <p>نحن نقدم حلولاً احترافية وفعّالة لتحقيق أحلامك</p>
-            <button class="btn" onclick="document.querySelector('#services').scrollIntoView({behavior: 'smooth'})">اكتشف الخدمات</button>
-            <button class="btn btn-secondary" onclick="document.querySelector('#contact').scrollIntoView({behavior: 'smooth'})">تواصل معنا</button>
-        </div>
-    </section>
+    <main>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form action="#" method="post" aria-label="Contact Form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required placeholder="yourname@example.com">
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>من نحن</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>رؤيتنا وقيمنا</h3>
-                    <p>نحن متخصصون في تقديم أفضل الخدمات والحلول الموثوقة. فريقنا مكون من محترفين ذوي خبرة عالية في مجالهم.</p>
-                    <p>نسعى دائماً لتجاوز توقعات عملائنا وتقديم قيمة حقيقية من خلال الابتكار والتطوير المستمر.</p>
-                    <ul style="margin-top: 1.5rem; list-style-position: inside;">
-                        <li>✓ فريق متخصص وموثوق</li>
-                        <li>✓ جودة عالية في العمل</li>
-                        <li>✓ تدعم 24/7</li>
-                        <li>✓ حلول مخصصة لعملائك</li>
-                    </ul>
-                </div>
-                <div class="about-image-placeholder">
-                    <div style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); width: 100%; height: 400px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
-                        صورة توضيحية
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="e.g., +966 55 123 4567">
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>خدماتنا</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🎯</div>
-                    <h3>التخطيط الاستراتيجي</h3>
-                    <p>نساعدك في وضع خطط فعّالة لتحقيق أهدافك بكفاءة وسرعة.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💼</div>
-                    <h3>الاستشارات المهنية</h3>
-                    <p>نقدم استشارات متخصصة من خبرائنا ذوي الخبرة العالية.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🚀</div>
-                    <h3>تطوير وتحسين</h3>
-                    <p>نعمل على تطوير مشاريعك وتحسين أدائها بشكل مستمر.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>تحليل البيانات</h3>
-                    <p>نستخدم أحدث التقنيات لتحليل البيانات واستخلاص الرؤى.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛡️</div>
-                    <h3>الأمان والحماية</h3>
-                    <p>نضمن حماية كاملة لبيانات ومشاريعك برقابة صارمة.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🤝</div>
-                    <h3>الدعم المستمر</h3>
-                    <p>فريقنا متاح دائماً لتقديم الدعم والمساعدة اللازمة.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>اتصل بنا</h2>
-            <p>لا تتردد في التواصل معنا. سنكون سعداء بالرد على استفساراتك</p>
-            <form class="contact-form" id="contactForm">
-                <input type="text" placeholder="اسمك الكامل" required>
-                <input type="email" placeholder="بريدك الإلكتروني" required>
-                <input type="text" placeholder="الموضوع" required>
-                <textarea placeholder="رسالتك..." required></textarea>
-                <button type="submit" class="btn">إرسال الرسالة</button>
+                <button type="submit">Submit</button>
             </form>
-            <div class="contact-info" style="margin-top: 2rem;">
-                <p>📧 البريد: info@example.com</p>
-                <p>📱 الهاتف: +966 XX XXX XXXX</p>
-                <p>📍 الموقع: المملكة العربية السعودية</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 G.S.Oulad-Njima. جميع الحقوق محفوظة.</p>
-            <p>تم تطويره بـ ❤️ من قبل فريقنا المتخصص</p>
-        </div>
+    <footer aria-label="Footer section">
+        <h3>Follow Us</h3>
+        <ul>
+            <li><a href="https://twitter.com/example">Twitter</a></li>
+            <li><a href="https://facebook.com/example">Facebook</a></li>
+            <li><a href="https://instagram.com/example">Instagram</a></li>
+        </ul>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
